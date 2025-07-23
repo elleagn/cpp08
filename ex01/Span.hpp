@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 17:02:19 by gozon             #+#    #+#             */
-/*   Updated: 2025/07/23 17:11:36 by gozon            ###   ########.fr       */
+/*   Updated: 2025/07/23 18:37:24 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <algorithm>
 #include <vector>
+#include <exception>
+#include <iterator>
 
 class Span {
 
@@ -34,8 +36,13 @@ class Span {
         Span& operator=(const Span& src);
 
         void addNumber(int number);
-        int shortestSpan() const;
-        int longestSpan() const;
+        void addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
+        unsigned int shortestSpan() const;
+        unsigned int longestSpan() const;
+
+        class FullSpanException: public std::exception {
+            const char* what() const throw();
+        };
 
 
 };
