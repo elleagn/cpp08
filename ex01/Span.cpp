@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 17:12:07 by gozon             #+#    #+#             */
-/*   Updated: 2025/07/23 18:39:52 by gozon            ###   ########.fr       */
+/*   Updated: 2025/07/23 18:47:44 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ const char* Span::FullSpanException::what() const throw() {
     return ("Span already full.");
 }
 
+const char* Span::EmptySpanException::what() const throw() {
+    return ("Span is empty.");
+}
+
 /* ************************************************************************** */
 
 /* **************************** METHODS ************************************* */
@@ -70,6 +74,9 @@ void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterato
 
 unsigned int Span::longestSpan() const {
 
+    if (vect.empty())
+        throw EmptySpanException();
+
     int min;
     int max;
 
@@ -82,10 +89,13 @@ unsigned int Span::longestSpan() const {
 
 unsigned int Span::shortestSpan() const {
 
+
+    if (vect.empty())
+        throw EmptySpanException();
+
     std::vector<int>    sorted(vect);
     unsigned int        shortest;
     unsigned int        current;
-
 
     std::sort(sorted.begin(), sorted.end());
     for (std::vector<int>::iterator it = sorted.begin(); it != sorted.end(); it++) {

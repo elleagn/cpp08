@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 17:02:19 by gozon             #+#    #+#             */
-/*   Updated: 2025/07/23 18:37:24 by gozon            ###   ########.fr       */
+/*   Updated: 2025/07/23 18:45:41 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ class Span {
         unsigned int longestSpan() const;
 
         class FullSpanException: public std::exception {
+            const char* what() const throw();
+        };
+
+        class EmptySpanException: public std::exception {
             const char* what() const throw();
         };
 
