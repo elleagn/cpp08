@@ -6,57 +6,36 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 09:41:09 by gozon             #+#    #+#             */
-/*   Updated: 2025/07/24 11:23:13 by gozon            ###   ########.fr       */
+/*   Updated: 2025/07/24 17:22:22 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
+#define RED "\033[31m"
+#define RESET "\033[0m"
+#define GREEN "\033[32m"
+
 #include <stack>
-#include <iterator>
 #include <cstddef>
 
 template<typename T>
 class MutantStack: public std::stack<T> {
 
     public:
-        class Iterator;
 
-};
+        MutantStack();
+        MutantStack(const MutantStack& src);
+        ~MutantStack();
 
+        MutantStack& operator=(const MutantStack& src);
 
-template<typename T>
-struct MutantStack<T>::Iterator {
+        typedef typename std::stack<T>::container_type::iterator iterator;
 
-    typedef std::bidirectional_iterator_tag iterator_category;
-    typedef std::ptrdiff_t difference_type;
-    typedef T value_type;
-    typedef T* pointer;
-    typedef T& reference;
+        iterator begin();
+        iterator end();
 
-    public:
-
-        // Constructors / destructors
-        Iterator();
-        Iterator(pointer ptr);
-        Iterator(const Iterator& src);
-        ~Iterator();
-
-        // Operators
-        Iterator&   operator=(const Iterator& src);
-        reference   operator*() const;
-        pointer     operator->();
-        Iterator&   operator++();
-        Iterator&   operator++(int);
-        Iterator&   operator--();
-        Iterator&   operator--(int);
-        bool        operator==(const Iterator& it) const;
-        bool        operator!=(const Iterator& it) const;
-
-    private:
-
-        ptr;
 };
 
 #include "MutantStack.tpp"

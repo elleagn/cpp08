@@ -6,11 +6,11 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/18 11:02:35 by gozon             #+#    #+#              #
-#    Updated: 2025/07/23 18:25:20 by gozon            ###   ########.fr        #
+#    Updated: 2025/07/24 17:41:08 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex01
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -Wshadow -Wpedantic -std=c++98 -fPIE
 CPP =	main.cpp
