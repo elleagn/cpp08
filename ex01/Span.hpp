@@ -44,7 +44,7 @@ class Span {
             const char* what() const throw();
         };
 
-        class EmptySpanException: public std::exception {
+        class SmallSpanException: public std::exception {
             const char* what() const throw();
         };
 

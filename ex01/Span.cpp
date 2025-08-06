@@ -48,8 +48,8 @@ const char* Span::FullSpanException::what() const throw() {
     return ("Span already full.");
 }
 
-const char* Span::EmptySpanException::what() const throw() {
-    return ("Span is empty.");
+const char* Span::SmallSpanException::what() const throw() {
+    return ("Span is too small.");
 }
 
 /* ************************************************************************** */
@@ -74,8 +74,8 @@ void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterato
 
 unsigned int Span::longestSpan() const {
 
-    if (vect.empty())
-        throw EmptySpanException();
+    if (vect.size() < 2)
+        throw SmallSpanException();
 
     int min;
     int max;
@@ -90,8 +90,8 @@ unsigned int Span::longestSpan() const {
 unsigned int Span::shortestSpan() const {
 
 
-    if (vect.empty())
-        throw EmptySpanException();
+    if (vect.size() < 2)
+        throw SmallSpanException();
 
     std::vector<int>    sorted(vect);
     unsigned int        shortest;
