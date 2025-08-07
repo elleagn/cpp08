@@ -53,12 +53,12 @@ int main()
     {
         Span span(BIG);
         std::cout << "\nTest 3 - Big span" << std::endl;
-        int nb;
         srand(time(NULL));
+        std::vector<int> nb;
         for (int i = 0; i < BIG; i++) {
-            nb = rand() % 100000;
-            span.addNumber(nb);
+            nb.insert(nb.end(), rand() % 1000000);
         }
+        span.addNumber(nb.begin(), nb.end());
         std::cout << std::endl;
         std::cout << "Shortest span: " << span.shortestSpan() << std::endl;
         std::cout << "Longest span: " << span.longestSpan() << std::endl;
