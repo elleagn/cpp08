@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
-CC = clang++
+NAME = ex02
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -Wshadow -Wpedantic -std=c++98 -fPIE
 CPP =	main.cpp
 OBJ_DIR = objects
